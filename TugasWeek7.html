@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatty</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="title p-2 m-2">Chatty</div>
+    <div id="chatContainer"></div>
+
+    <div class="inputContainer d-flex justify-content-evenly pb-3 pt-3">
+      <div class="leftInput col-5">
+        <form action="">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputValPartner"
+              aria-describedby="emailHelp"
+              placeholder="Enter name"
+              required
+            />
+          </div>
+          <div class="form-group pt-3">
+            <label for="exampleFormControlTextarea1">Message</label>
+            <textarea
+              class="form-control"
+              id="inputMsgValPartner"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="btnContainer d-flex justify-content-center">
+            <button
+              type="button"
+              class="btn btn-primary mt-3 w-50"
+              id="btnGetPartner"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="rightInput col-5">
+        <form action="">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputValMe"
+              aria-describedby="emailHelp"
+              placeholder="Enter name"
+              value="Me"
+              readonly
+              style="background-color: #ececec"
+              required
+            />
+          </div>
+          <div class="form-group pt-3">
+            <label for="exampleFormControlTextarea1">Message</label>
+            <textarea
+              class="form-control"
+              id="inputMsgValMe"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="btnContainer d-flex justify-content-center">
+            <button
+              type="button"
+              class="btn btn-primary mt-3 w-50"
+              id="btnGetMe"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Chat from 'Me'
+      $("#btnGetMe").click(function () {
+        var valMe = $("#inputValMe").val();
+        var valMsgMe = $("#inputMsgValMe").val();
+
+        $("#chatContainer").append(
+          "<div class='meContainer m-2 p-2 text-end'>" +
+            "<strong>" +
+            valMe +
+            "</strong><br /> " +
+            valMsgMe +
+            "</div>"
+        );
+
+        $("#inputValMe").val("Me");
+        $("#inputMsgValMe").val("");
+      });
+
+      // Chat from 'Partner'
+      $("#btnGetPartner").click(function () {
+        var valPartner = $("#inputValPartner").val();
+        var valMsgPartner = $("#inputMsgValPartner").val();
+
+        $("#chatContainer").append(
+          "<div class='partnerContainer m-2 p-2'>" +
+            "<strong>" +
+            valPartner +
+            "</strong><br /> " +
+            valMsgPartner +
+            "</div>"
+        );
+
+        $("#inputValPartner").val(valPartner);
+        $("#inputMsgValPartner").val("");
+      });
+    </script>
+  </body>
+</html>

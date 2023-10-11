@@ -1,0 +1,42 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  background-color: #f5f9fc;
+}
+
+.inputContainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f9fc;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+.meContainer {
+  background-color: aquamarine;
+}
+.partnerContainer {
+  background-color: lightgray;
+}
+
+#chatContainer {
+  max-height: 60vh;
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #808080 #f0f0f0; /* For Firefox */
+}
+
+#chatContainer::-webkit-scrollbar {
+  width: 8px; /* For Chrome, Safari, and Opera */
+}
+
+#chatContainer::-webkit-scrollbar-thumb {
+  background-color: #808080; /* For Chrome, Safari, and Opera */
+}
+
+#chatContainer::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* For Chrome, Safari, and Opera */
+}
